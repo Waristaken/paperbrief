@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperBrief — Understand any research paper instantly</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>PaperBrief</h1>
+            <p>Upload a research paper PDF and get a structured breakdown instantly.</p>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="upload-box" id="uploadBox">
+            <div class="upload-icon">📄</div>
+            <p class="upload-text">Drop your PDF here or click to browse</p>
+            <input type="file" id="fileInput" accept=".pdf" hidden>
+            <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                Choose PDF
+            </button>
+            <p class="file-name" id="fileName"></p>
+        </div>
+
+        <!-- Analyze Button -->
+        <button class="analyze-btn" id="analyzeBtn" onclick="analyzePaper()" disabled>
+            Analyze Paper
+        </button>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading" hidden>
+            <div class="spinner"></div>
+            <p>Reading and analyzing your paper...</p>
+        </div>
+
+        <!-- Results Section (hidden until we have results) -->
+        <div class="results" id="results" hidden>
+
+            <div class="result-header">
+                <h2 id="paperTitle"></h2>
+                <span class="badge" id="difficultyBadge"></span>
+            </div>
+
+            <div class="card">
+                <h3>Problem being solved</h3>
+                <p id="problemText"></p>
+            </div>
+
+            <div class="card">
+                <h3>Plain English Summary</h3>
+                <p id="summaryText"></p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Key Claims</h3>
+                    <ul id="claimsList"></ul>
+                </div>
+                <div class="card">
+                    <h3>Methods Used</h3>
+                    <ul id="methodsList"></ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Key Findings</h3>
+                <ul id="findingsList"></ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
